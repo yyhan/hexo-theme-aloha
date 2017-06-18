@@ -7,14 +7,14 @@
     </div>
     <%-partial('_partial/sidebar-card')%>
 
-    <% Object.keys(theme.menu).forEach(function(key) { %>
+    <% Object.keys(config.menu).forEach(function(key) { %>
     <% var className = "item"; %>
 
-    <% if (url_for(theme.menu[key].value) == '/' + path.replace('/index.html', '') || (url_for(theme.menu[key].value) == '/.' && is_home())) { %>
+    <% if (url_for(config.menu[key].value) == '/' + path.replace('/index.html', '') || (url_for(config.menu[key].value) == '/.' && is_home())) { %>
     <% className = "active item"%>
     <% } %>
 
-    <% var item = theme.menu[key];%>
+    <% var item = config.menu[key];%>
     <a href="<%= item.value %>" class="<%= className %>" <%= item.target ? 'target="' + item.target + '"' : ''%>>
         <i class="<%= item.icon %> icon"></i>
         <%= __(item.name) %>

@@ -9,26 +9,31 @@ theme: simple
 
 # main menu navigation
 # icon name see http://semantic-ui.com/elements/icon.html
-menu:
-  Home:
-    name: homePage
-    value: /index.html
-    icon: home
-#  Rss:
-#    name: rss
-#    value: /atom.xml
-#    icon: rss
-#  About:
-#    name: aboutPage
-#    value: /about
-#    icon:
+# menu:
+#   Home:
+#     name: homePage
+#     value: /index.html
+#     icon: home
+#   archives:
+#     name: archives
+#     value: /archives/
+#     icon: archive
+#   Rss:
+#     name: rss
+#     value: /atom.xml
+#     icon: rss
+#   About:
+#     name: aboutPage
+#     value: /about
+#     icon: mail
+
 
 # some configuration about index page
 index:
   showyear: false
 
 # Miscelaneous
-favicon: /favicon.ico
+favicon: /favicon.jpg
 
 # configure cdn source, in order to access faster
 # default is //cdn.bootcss.com/
@@ -53,3 +58,4 @@ scripts:
 #- cdn/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js
 - local/js/semantic-ui-algolia.js
 - local/js/aloha-events.js
+
