@@ -12,68 +12,73 @@ if (pageTitle == '') {
 }
 %>
 
-<!DOCTYPE html>
-<html lang="<%= config.language %>">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="<%= config.description %>">
-    <title><%= pageTitle %></title>
+    <!DOCTYPE html>
+    <html lang="<%= config.language %>">
 
-    <!-- Open Graph -->
-    <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+    <head prefix="og: http://ogp.me/ns#">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="description" content="<%= config.description %>">
+        <title>
+            <%= pageTitle %>
+        </title>
 
-    <%-partial('_partial/structured-data-markup')%>
-    <%-partial('_partial/js-params')%>
+        <!-- Open Graph -->
+        <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
 
-    <% if (config.rss){ %>
-        <link rel="alternate" href="<%- config.rss %>" title="<%= config.title %>" type="application/atom+xml">
-    <% } %>
+            <%-partial('_partial/structured-data-markup')%>
+                <%-partial('_partial/js-params')%>
 
-    <% css('css/aloha') %>
-    <% if (config.highlight.enable){ %>
+                    <% if (config.rss){ %>
+                        <link rel="alternate" href="<%- config.rss %>" title="<%= config.title %>" type="application/atom+xml">
+                        <% } %>
+
+                            <% css('css/aloha') %>
+                                <!--<% if (config.highlight.enable){ %>
         <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    <% } %>
-    <% var cdn = theme.cdn;%>
-    <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
-        <!-- stylesheets list from config.yml -->
-        <% theme.stylesheets.forEach(function(url) { %>
-        <link rel="stylesheet" href="<%= resourceURL(cdn, config.root, url) %>">
-        <% }); %>
-    <% } %>
+    <% } %>-->
+                                <% var cdn = theme.cdn;%>
+                                    <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
+                                        <!-- stylesheets list from config.yml -->
+                                        <% theme.stylesheets.forEach(function(url) { %>
+                                            <link rel="stylesheet" href="<%= resourceURL(cdn, config.root, url) %>">
+                                            <% }); %>
+                                                <% } %>
 
-</head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
+    </head>
 
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
+    <body id="body" style="margin-bottom: 0;" class="pushable">
 
-    <%- partial('_partial/menu')%>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <%- body %>
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
+        <div class="ui top fixed menu">
+            <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
         </div>
-        <%- partial('_partial/footer')%>
-    </div>
 
-<% if(config.algolia && config.algolia.applicationID) {%>
-    <%- partial('_partial/search-modal')%>
-<%}%>
+        <%- partial('_partial/menu')%>
 
-<% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
-<!-- scripts list from theme config.yml -->
-<% theme.scripts.forEach(function(url) { %>
-<script src="<%= resourceURL(cdn, config.root, url) %>"></script>
-<% }); %>
-<% } %>
+            <div class="pusher body-content">
+                <div id="content" class="ui main container">
+                    <!--<div class="ui one column grid">-->
+                    <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                    <%- body %>
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                </div>
+                <%- partial('_partial/footer')%>
+            </div>
 
-</body>
-</html>
+            <% if(config.algolia && config.algolia.applicationID) {%>
+                <%- partial('_partial/search-modal')%>
+                    <%}%>
+
+                        <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+                            <!-- scripts list from theme config.yml -->
+                            <% theme.scripts.forEach(function(url) { %>
+                                <script src="<%= resourceURL(cdn, config.root, url) %>"></script>
+                                <% }); %>
+                                    <% } %>
+
+    </body>
+
+    </html>
