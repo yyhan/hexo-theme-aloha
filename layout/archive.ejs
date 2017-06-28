@@ -8,7 +8,7 @@ var categoriesList = list_categories({ show_count: false }),
 <% if (!is_year()) { %>
   <div id="archive">
 
-    <h1>Archives</h1>
+    <h1>归档</h1>
 
     <% if (theme.atom) { %>
       <p>
@@ -19,7 +19,7 @@ var categoriesList = list_categories({ show_count: false }),
     <% } %>
 
     <aside>
-      <h2>Categories</h2>
+      <h2>分类</h2>
       <% if (categoriesList) { %>
         <%-categoriesList%>
       <% } else { %>
@@ -29,7 +29,7 @@ var categoriesList = list_categories({ show_count: false }),
     <br>
 
     <aside>
-      <h2>Tags</h2>
+      <h2>标签</h2>
       <% if (tagsList) { %>
         <%-tagsList%>
       <% } else { %>
@@ -39,7 +39,7 @@ var categoriesList = list_categories({ show_count: false }),
     <br>
 
     <aside>
-      <h2>Archives</h2>
+      <h2>归档</h2>
       <% if (archivesList) { %>
         <%-archivesList%>
       <% } else { %>
@@ -70,7 +70,6 @@ var categoriesList = list_categories({ show_count: false }),
       </time>
     </div>
   <% }); %>
-
+  <%-partial('_partial/pagination')%>
 <% } %>
 
-<%-partial('_partial/pagination')%>
